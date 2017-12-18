@@ -31,6 +31,10 @@
       <td>SELECT table_name, column_name FROM information_schema.columns</td>
     </tr>
     <tr>
+      <td>Current Database User</td>
+      <td>SELECT user;<br>SELECT system_user;<br>SELECT user_name();<br>SELECT loginame from master..sysprocesses where spid = @@SPID</td>
+    </tr>
+    <tr>
       <td>Users</td>
       <td>SELECT name from master..syslogins</td>
     </tr>
@@ -39,11 +43,11 @@
       <td>SELECT * from master..sysobjects where name like 'sp%' order by name desc</td>
     </tr>
     <tr>
-      <td>Get Principal Id from username</td>
+      <td>Principal Id from username</td>
       <td>SELECT SUSER_ID('sa')</td>
     </tr>
     <tr>
-      <td>Get username from Principal Id</td>
+      <td>Username from Principal Id</td>
       <td>SELECT SUSER_NAME(1)</td>
     </tr>
     <tr>
@@ -75,10 +79,6 @@
         = -1 THEN (LEN(CONVERT(NVARCHAR(MAX),qt.TEXT)) * 2) <br/>ELSE statement_end_offset END)- statement_start_offset) / 2+1)) AS sql_statement FROM sys.dm_exec_query_stats AS qs CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS qt ) x ORDER BY execution_count
         DESC
       </td>
-    </tr>
-    <tr>
-      <td>Get Current Database User</td>
-      <td>SELECT user;<br>SELECT system_user;<br>SELECT user_name();<br>SELECT loginame from master..sysprocesses where spid = @@SPID</td>
     </tr>
     <tr>
       <td>List enabled audit specifications</td>

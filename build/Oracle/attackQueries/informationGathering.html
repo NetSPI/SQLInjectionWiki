@@ -25,10 +25,6 @@
       <td>SELECT username FROM all_users ORDER BY username;<br>* SELECT name FROM sys.user$;</td>
     </tr>
     <tr>
-      <td>DBA Accounts</td>
-      <td>SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = 'YES';</td>
-    </tr>
-    <tr>
       <td>Current Database</td>
       <td>SELECT global_name FROM global_name;<br>SELECT name FROM v database;
         <br>SELECT instance_name FROM v$instance;<br>SELECT SYS.DATABASE_NAME FROM DUAL;</td>
@@ -36,6 +32,10 @@
     <tr>
       <td>Databases</td>
       <td>SELECT DISTINCT owner FROM all_tables;</td>
+    </tr>
+    <tr>
+      <td>DBA Accounts</td>
+      <td>SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = 'YES';</td>
     </tr>
     <tr>
       <td>Columns</td>

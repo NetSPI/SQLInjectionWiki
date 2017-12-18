@@ -21,8 +21,12 @@
       <td>SELECT user FROM mysql.user<br>SELECT user();<br>SELECT system_user()<br>* SELECT Super_priv FROM mysql.user WHERE user= 'root' LIMIT 1,1</td>
     </tr>
     <tr>
+      <td>Current Database</td>
+      <td>SELECT database()</td>
+    </tr>
+    <tr>
       <td>Databases</td>
-      <td>SELECT database()<br>SELECT schema_name FROM information_schema.schemata<br></td>
+      <td>SELECT schema_name FROM information_schema.schemata<br></td>
     </tr>
     <tr>
       <td>Tables</td>
