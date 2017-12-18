@@ -66,11 +66,15 @@ function loadTabs() {
   })
   //Load each tab
   for (var i = 0; i < tabs.length; i++) {
-    var currTab = tabs[i];
     //Add each tab to a promise array
-    promises.push($.get("/build/" + tabs[i] + "/" + sectionType + "/" + topicType + '.html?' + VERSION, function(response, status) {
-      handleTabLoad(response, status, currTab)
-    }))
+    promises.push($.get("/build/" + tabs[i] + "/" + sectionType + "/" + topicType + '.html?' + VERSION, (function() {
+      //Using a closure here to save the tab.
+      //Would use const instead of var, but IE SUCKS.
+      var currTab = tabs[i];
+      return function(response, status, test) {
+        handleTabLoad(response, status, currTab)
+      }
+    })()))
   }
   //Wait until they're all loaded, so they can be displayed in unison
   $.when.apply($, promises).then(function() {
