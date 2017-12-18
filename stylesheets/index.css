@@ -8,12 +8,12 @@ html, body {
 
 @font-face {
   font-family: NetSPISegoeBold;
-  src: url(/fonts/segoe-ui-bold.ttf), url(/fonts/segoe-ui-bold.eot);
+  src: url(/fonts/segoe-ui-bold.ttf), url(/fonts/segoe-ui-bold.eot?#iefix);
 }
 
 @font-face {
   font-family: NetSPISegoe;
-  src: url(/fonts/segoe-ui.ttf), url(/fonts/segoe-ui.eot);
+  src: url(/fonts/segoe-ui.ttf), url(/fonts/segoe-ui.eot?#iefix);
 }
 
 .header {

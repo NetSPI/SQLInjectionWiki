@@ -52,7 +52,7 @@
   </div>
   <noscript>Javascript is required for viewing, please enable.</noscript>
 </body>
-<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script src="https://static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">
   try {
     clicky.init(101090587);
@@ -76,7 +76,7 @@
   //Because caching
   const VERSION = 0.6;
   injectJS('/javascripts/descriptions.js?' + VERSION)
-  injectJS('/javascripts/nav.js?' + VERSION, () => {
+  injectJS('/javascripts/nav.js?' + VERSION, function() {
     //index.js depends on functions in nav.js
     injectJS('/javascripts/index.js?' + VERSION)
   })

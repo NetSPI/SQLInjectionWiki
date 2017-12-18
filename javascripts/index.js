@@ -12,7 +12,9 @@ loadPage()
 //Load the page
 function loadPage() {
   if (window.location.pathname == '/') { //Default to home
-    $("#contentContainer").load('/views/home.html?' + VERSION);
+    $.get('/views/home.html?' + VERSION, function(response, data) {
+      $('#contentContainer').html(response);
+    })
     activePage = 'home';
   } else { //We at least have a pageType
     var pageType = getRouteProperty('pageType');
@@ -22,17 +24,19 @@ function loadPage() {
     if (activePage !== pageType || activeTopicType !== topicType) {
       $("#contentContainer").prepend(ABSOLUTE_LOADER);
       if (pageType != TAB_PAGE_TYPE) { //Tabbed pages need to be handled differently
-        $("#contentContainer").load('/views/' + pageType + '.html?' + VERSION, () => {
+        $.get('/views/' + pageType + '.html?' + VERSION, function(response, data) {
+          $('#contentContainer').html(response);
           if ($('#contentContainer .injectionDescription')) {
             loadInjectionDescriptions();
           }
-        });
+        })
       } else {
         //Tab pages have to load tab.html, then all the contents for each tab.
         //Put that in a staging area until it's all loaded so we don't get content popping in randomly
-        $("#contentContainerStage").load('/views/' + pageType + '.html?' + VERSION, () => {
+        $.get('/views/' + pageType + '.html?' + VERSION, function(response, data) {
+          $('#contentContainerStage').html(response);
           loadTabs();
-        });
+        })
       }
     } else if (activeTab !== tabType) {
       if (!tabType) {
@@ -57,19 +61,19 @@ function loadTabs() {
   }
   var promises = [];
   //Get all tabs that we need to load
-  var tabs = $('#contentContainerStage .tab-pane').map((idx, elem) => {
+  var tabs = $('#contentContainerStage .tab-pane').map(function(idx, elem) {
     return elem.id;
   })
   //Load each tab
   for (var i = 0; i < tabs.length; i++) {
     const currTab = tabs[i];
     //Add each tab to a promise array
-    promises.push($.get("/build/" + tabs[i] + "/" + sectionType + "/" + topicType + '.html?' + VERSION, (response, status) => {
+    promises.push($.get("/build/" + tabs[i] + "/" + sectionType + "/" + topicType + '.html?' + VERSION, function(response, status) {
       handleTabLoad(response, status, currTab)
     }))
   }
   //Wait until they're all loaded, so they can be displayed in unison
-  $.when.apply($, promises).then(() => {
+  $.when.apply($, promises).then(function() {
     var tabName = getParameterByName('dbms');
     if (!tabName) {
       tabName = DEFAULT_TAB;
@@ -97,7 +101,7 @@ function handleTabLoad(response, status, tab) {
   } else {
     $('#contentContainerStage #' + tab).html(response);
     //Collapse any rows that have a ton of content
-    $('#contentContainerStage #' + tab + ' td').each((idx, data) => {
+    $('#contentContainerStage #' + tab + ' td').each(function(idx, data) {
       if (data.innerText.length > PREVIEW_LENGTH) {
         data.innerHTML = "<div class=\"collapseRow\">" + data.innerHTML + getShowElement(true) + "</div>";
       }
@@ -107,7 +111,7 @@ function handleTabLoad(response, status, tab) {
 
 //Load the descriptions for the current injection type
 function loadInjectionDescriptions() {
-  $('.injectionDescription').each((idx, description) => {
+  $('.injectionDescription').each(function(idx, description) {
     description.innerHTML = descriptions[description.id];
   })
 }
@@ -148,12 +152,12 @@ $(document).ajaxStop(function() {
 //Initialize any "show more" links
 //We have it with this weird 'body'.on syntax so that we don't have to add the handler
 // to every new element.  This adds it to any future elements as well as current elements.
-$('body').on('click', '.dataPreviewLink.showMore', (e) => {
+$('body').on('click', '.dataPreviewLink.showMore', function(e) {
   $(e.target).toggleClass('show');
   $($(e.target).parent()).find('.dataPreviewLink.showLess').toggleClass('show');
   $($(e.target).next('.dataPreview')).toggleClass('show');
 })
-$('body').on('click', '.dataPreviewLink.showLess', (e) => {
+$('body').on('click', '.dataPreviewLink.showLess', function(e) {
   $(e.target).toggleClass('show');
   $($(e.target).parent()).find('.dataPreviewLink.showMore').toggleClass('show');
   $($(e.target).prev('.dataPreview')).toggleClass('show');

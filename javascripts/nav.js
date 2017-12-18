@@ -1,9 +1,10 @@
 var isMobile = $('.mobile:visible').length > 0;
 
 //Load the nav bar and activate
-$('.n-navbar').load("/views/nav.html?" + VERSION, () => {
+$.get("/views/nav.html?" + VERSION, function(response, data) {
+  $('.n-navbar').html(response);
   setActiveNav()
-});
+})
 
 //When the navigation hamburger, or X, is clicked open/close it.
 $('.n-nav-icon').click(function() {
@@ -102,9 +103,9 @@ function getParameterByName(name) {
 function updateQueryStringParameter(key, value) {
   var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
   var uri = window.location.search;
-  var separator = uri.indexOf('?') !== -1
-    ? "&"
-    : "?";
+  var separator = uri.indexOf('?') !== -1 ?
+    "&" :
+    "?";
   if (uri.match(re)) {
     updateRoute(window.location.pathname + uri.replace(re, '$1' + key + "=" + value + '$2'))
   } else {
