@@ -87,6 +87,7 @@
 
 .n-navbar .n-nav-item {
   margin-left: -300px;
+  -webkit-transition: margin-left .5s ease, padding-left .5s ease, background-color .25s ease;
   transition: margin-left .5s ease, padding-left .5s ease, background-color .25s ease;
   padding-left: 25px;
   width: 275px;
@@ -95,6 +96,7 @@
 .n-navbar .n-parent-nav-item {
   margin-left: -300px;
   padding-left: 25px;
+  -webkit-transition: margin-left .5s ease;
   transition: margin-left .5s ease;
 }
 
@@ -129,7 +131,6 @@
   /* iOS Safari */
   -webkit-user-select: none;
   /* Safari */
-  -khtml-user-select: none;
   /* Konqueror HTML */
   -moz-user-select: none;
   /* Firefox */
@@ -144,7 +145,6 @@ img {
   /* iOS Safari */
   -webkit-user-select: none;
   /* Safari */
-  -khtml-user-select: none;
   /* Konqueror HTML */
   -moz-user-select: none;
   /* Firefox */
@@ -159,7 +159,6 @@ img {
   /* iOS Safari */
   -webkit-user-select: none;
   /* Safari */
-  -khtml-user-select: none;
   /* Konqueror HTML */
   -moz-user-select: none;
   /* Firefox */

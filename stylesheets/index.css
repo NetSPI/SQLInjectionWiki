@@ -224,6 +224,7 @@ pre {
   width: 100%;
   cursor: pointer;
   cursor: hand;
+  -webkit-transition: text-decoration .25s ease;
   transition: text-decoration .25s ease;
 }
 
