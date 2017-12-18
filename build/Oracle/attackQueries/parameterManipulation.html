@@ -1,0 +1,50 @@
+<h3 id="parameter-manipulation">Parameter Manipulation</h3>
+
+<p class="injectionDescription">Manipulating parameters aids in bypassing Web Application Firewalls, Anti-Virus scanners, and allows modification of various SQL queries for unique situations.</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th align="left">Query</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ASCII &gt; Char</td>
+            <td>SELECT char(65) from dual</td>
+        </tr>
+        <tr>
+            <td>Char &gt; ASCII</td>
+            <td>SELECT ascii('A') from dual</td>
+        </tr>
+        <tr>
+            <td>Bitwise AND</td>
+            <td>SELECT 6 &amp; 2 from dual</td>
+        </tr>
+        <tr>
+            <td>Bitwise OR</td>
+            <td>SELECT 6 from dual</td>
+        </tr>
+        <tr>
+            <td>Bitwise Negation</td>
+            <td>SELECT ~6 from dual</td>
+        </tr>
+        <tr>
+            <td>Bitwise XOR</td>
+            <td>SELECT 6 ^ 2 from dual</td>
+        </tr>
+        <tr>
+            <td>Substring</td>
+            <td>SELECT substr('abcd', 3, 2) from dual<br><em>substr(string, index, length)</em></td>
+        </tr>
+        <tr>
+            <td>Casting</td>
+            <td>select CAST(12 AS CHAR(32)) from dual</td>
+        </tr>
+        <tr>
+            <td>Concatenation</td>
+            <td>SELECT concat('net','spi') from dual<br>SELECT 'n' 'et' 'spi' from dual</td>
+        </tr>
+    </tbody>
+</table>
