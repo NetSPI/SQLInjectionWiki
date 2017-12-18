@@ -1,6 +1,6 @@
-const DEFAULT_TAB = 'MySQL';
-const TAB_PAGE_TYPE = 'tab';
-const ABSOLUTE_LOADER = '<div class="spinner absoluteSpinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>';
+var DEFAULT_TAB = 'MySQL';
+var TAB_PAGE_TYPE = 'tab';
+var ABSOLUTE_LOADER = '<div class="spinner absoluteSpinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>';
 var activePage = '';
 var activeTopicType = '';
 var activeTab = DEFAULT_TAB;
@@ -52,7 +52,7 @@ function loadPage() {
 
 //Load all injection tabs
 function loadTabs() {
-  const sectionType = getRouteProperty('sectionType');
+  var sectionType = getRouteProperty('sectionType');
   var topicType = getRouteProperty('topicType');
   if (sectionType == null) {
     return; //Something happend.
@@ -66,7 +66,7 @@ function loadTabs() {
   })
   //Load each tab
   for (var i = 0; i < tabs.length; i++) {
-    const currTab = tabs[i];
+    var currTab = tabs[i];
     //Add each tab to a promise array
     promises.push($.get("/build/" + tabs[i] + "/" + sectionType + "/" + topicType + '.html?' + VERSION, function(response, status) {
       handleTabLoad(response, status, currTab)
