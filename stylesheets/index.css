@@ -22,7 +22,7 @@ html, body {
 
 code {
   color: black;
-  font-family: "Roboto", monospace;
+  font-family: monospace;
 }
 
 ul.noindent {
@@ -173,11 +173,11 @@ a {
 }
 
 .table {
-  font-family: "Roboto", monospace;
+  font-family: monospace;
 }
 
 pre {
-  font-family: "Roboto", monospace;
+  font-family: monospace;
   background: #eceeef;
   padding: 5px;
 }
