@@ -55,6 +55,7 @@ That will update the master repository.
 - Antti Rantasaari
 - Ben Tindell
 - Colin Salisbury
+- Eric Gruber
 - Jake Reynolds (@jreynoldsdev)
 - Kai Tran (@k_tr4n)
 - Rafael Seferyan
