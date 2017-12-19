@@ -25,9 +25,15 @@ function loadPage() {
       $("#contentContainer").prepend(ABSOLUTE_LOADER);
       if (pageType != TAB_PAGE_TYPE) { //Tabbed pages need to be handled differently
         $.get('/views/' + pageType + '.html?' + VERSION, function(response, data) {
-          $('#contentContainer').html(response);
-          if ($('#contentContainer .injectionDescription')) {
-            loadInjectionDescriptions();
+          if (response.indexOf('<head>') > -1 && response.indexOf('<title>SQL') > -1) {
+            //Whatever view it is, we don't have it and it defaulted to index.html
+            debugger;
+            window.location.pathname = '/';
+          } else {
+            $('#contentContainer').html(response);
+            if ($('#contentContainer .injectionDescription')) {
+              loadInjectionDescriptions();
+            }
           }
         })
       } else {
