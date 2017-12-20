@@ -255,7 +255,7 @@ tr:hover .showMore {
   #contentContainer {
     font-size: 15px;
   }
-  tr td:first-of-type {
-    width: auto;
+  tr td {
+    width: 1% !important;
   }
 }
