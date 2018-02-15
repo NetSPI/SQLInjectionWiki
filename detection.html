@@ -6,9 +6,9 @@ layout: default
 <h4 class="subheading">Parameter Locations</h4>
 <p>Browse the tabs below to see common injection points in various HTTP requests. Common injection points are <span class="injectionHighlight">highlighted in red</span></p>
 <div id="tabs" class="tabs">
-  <input class="input" name="tabs" type="radio" id="Query" checked/>
-  <label class="label" for="Query">GET - HTTP Request</label>
-  <div class="panel">
+  <input class="tabInput" name="tabs" type="radio" id="Query" checked/>
+  <label class="tabLabel" for="Query">GET - HTTP Request</label>
+  <div class="tabPanel">
     <p>In a generic HTTP GET request (and most request types) there are a few common injection points. URL parameters, like <code>id</code> in the below request, cookie names and values, the Host header, and any custom headers are most likely. However, any
       content in an HTTP request can be vulnerable to SQL injection.</p>
     <pre>
@@ -26,9 +26,9 @@ Cookie: user=<span class="injectionHighlight">harold</span>;
 
 </pre>
   </div>
-  <input class="input" name="tabs" type="radio" id="FormData"/>
-  <label class="label" for="FormData">POST - Form Data</label>
-  <div class="panel">
+  <input class="tabInput" name="tabs" type="radio" id="FormData"/>
+  <label class="tabLabel" for="FormData">POST - Form Data</label>
+  <div class="tabPanel">
     <p>In a standard HTTP POST request with a Content-Type of application/x-www-form-urlencoded the injections will be similar to URL parameters in a GET request. They are located below the HTTP headers, but can still be exploited in the same ways.</p>
     <pre>
 POST / HTTP/1.1
@@ -38,9 +38,9 @@ Content-Length: 39
 
 username=<span class="injectionHighlight">harold</span>&amp;email=<span class="injectionHighlight">harold@netspi.com</span></pre>
   </div>
-  <input class="input" name="tabs" type="radio" id="JSON"/>
-  <label class="label" for="JSON">POST - JSON</label>
-  <div class="panel">
+  <input class="tabInput" name="tabs" type="radio" id="JSON"/>
+  <label class="tabLabel" for="JSON">POST - JSON</label>
+  <div class="tabPanel">
     <p>In a standard HTTP POST request with a Content-Type of application/json the injections will be usually be in the values of a JSON <code>{"key":"value"}</code> pair. The value may be an array or an object as well. Although the notation is different,
       the values can be injected the same way as all other parameters. (Hint: try <code>'</code>, but make sure the JSON is using double quotes, otherwise you may break the request format.)</p>
     <pre>
@@ -54,9 +54,9 @@ Content-Length: 56
   "email":"<span class="injectionHighlight">harold@netspi.com</span>"
 }</pre>
   </div>
-  <input class="input" name="tabs" type="radio" id="XML"/>
-  <label class="label" for="XML">POST - XML</label>
-  <div class="panel">
+  <input class="tabInput" name="tabs" type="radio" id="XML"/>
+  <label class="tabLabel" for="XML">POST - XML</label>
+  <div class="tabPanel">
     <p>In a standard HTTP POST request with a Content-Type of application/xml the injections will usually be inside an <code>&lt;xmlObject&gt;&lt;/xmlObject&gt;</code>. Although the notation is different, the values can be injected the same way as all other
       parameters. (Hint: <code>'</code>)</p>
     <pre>
