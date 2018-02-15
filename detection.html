@@ -102,30 +102,3 @@ Content-Length: 79
     </tr>
   </tbody>
 </table>
-<script>
-  $(document).ready(function() {
-    $("#detectionTabs").tabs({
-      'active': 0
-    });
-    //Update the active tab. This is hardcoded for now, should abstract
-    window.updateDetectionTab = function(tab) {
-      if (!tab) {
-        tab = 'Query';
-      };
-      $('#detectionTabs ul li a').removeClass('active')
-      $('#detectionTabs ul li a[href="#' + tab + '"]').addClass('active')
-      $("#detectionTabs").tabs({
-        active: getTabIndex(tab)
-      });
-    }
-
-    function getTabIndex(tab) {
-      var tabs = $('#detectionTabs ul li a');
-      for (var i = 0; i < tabs.length; i++) {
-        if (tabs[i].getAttribute('href') == "#" + tab) {
-          return i;
-        }
-      }
-    }
-  })
-</script>
