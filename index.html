@@ -1,119 +1,19 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+---
 
-<head>
-  <title>SQL Injection Wiki</title>
-  <meta name="theme-color" content="#ffffff">
-  <meta charset="utf-8">
-  <meta property="og:url" content="https://sqlwiki.netspi.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
-  <meta property="og:description" content="This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems." />
-  <meta property="og:image" content="https://sqlwiki.netspi.com/images/facebookCard.jpg" />
-  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
-  <meta name="twitter:description" content="This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="http://sqlwiki.netspi.com/images/twitterCard.jpg">
-  <meta name="twitter:site" content="@netspi" />
-  <meta name="twitter:creator" content="@netspi" />
-  <meta name="description" content="This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems">
-  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet">
-  <link rel="author" href="https://netspi.com" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  <link href="/stylesheets/index.css?v1.0" rel="stylesheet" type="text/css" />
-  <link href="/stylesheets/nav.css?v1.0" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-M7JZ64N');
-  </script>
-  <!--[if lt IE 10 ]>
-<script>
-alert('It looks like you\'re using IE < 10.  Please use a newer browser.');
-window.location = 'https://netspi.com';
-</script>
-<![endif]-->
-</head>
+<h2 id="header">Welcome to the NetSPI SQL Injection Wiki!</h2>
+<div id="homeWrapper">
+  <p class="readableText">This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems (DBMS). This wiki assumes you have a basic understanding of SQL injection, please
+    go <a href="https://www.owasp.org/index.php/SQL_Injection" rel="noopener" target="_blank">here</a> for an introduction if you are unfamiliar.</p>
+  <p class="readableText">Below is an outline of the wiki's structure, laid out in the order of a normal escalation path. Certain queries may be version specific.</p>
+  <h3>Step 1: <a href="{{site.baseurl}}/detection">Injection Detection</a></h3>
+  <h3>Step 2: <a href="{{site.baseurl}}/dbmsIdentification">DBMS Identification</a></h3>
+  <h3>Step 3: <a href="{{site.baseurl}}/injectionTypes">Injection Types</a></h3>
+  <h3>Step 4: <a href="{{site.baseurl}}/injectionTechniques">Injection Techniques</a></h3>
+  <h3>Step 5: <a href="{{site.baseurl}}/attackQueries">Attack Queries</a></h3>
+  <p></p>
+  <h3>Contributing</h3>
+  <p>Please feel free to submit pull requests or issues on our <a href="https://github.com/NetSPI/SQLInjectionWiki" target="_blank" rel="noopener">Github</a> if you notice something that is missing or inaccurate.</p>
 
-<body>
-  <!--Mobile identifier-->
-  <div class="mobile"></div>
-  <div class="fullpage loadWrapper">
-    <div id="imageWrapper"><img src="/images/logo.png" />
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>
-  </div>
-  <div id="contentWrapper" class="hidden">
-    <div id="topBar">
-      <div class="n-nav-icon active open">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div id="logoContainer">
-        <img onClick="updateRoute('/')" src="/images/logo.png" /><br/>
-      </div>
-    </div>
-    <div class="n-navbar active">
-      <!--If you want to update the nav bar, go to /views/nav.html-->
-    </div>
-    <div id="contentContainer">
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>
-    <div id="contentContainerStage" style="display:none;">
-    </div>
-  </div>
-  <noscript>Javascript is required for viewing, please enable.</noscript>
-</body>
-<script src="https://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">
-  try {
-    clicky.init(101090587);
-  } catch (e) {}
-</script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-<script>
-  //Because caching
-  var VERSION = 1.1;
-  injectJS('/javascripts/descriptions.js?' + VERSION)
-  injectJS('/javascripts/nav.js?' + VERSION, function() {
-    //index.js depends on functions in nav.js
-    injectJS('/javascripts/index.js?' + VERSION)
-  })
-
-  function injectJS(url, callback) {
-    script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    if (callback) {
-      script.onload = callback;
-    }
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-</script>
-
-</html>
+</div>

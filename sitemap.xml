@@ -1,75 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://sqlwiki.netspi.com/</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/detection</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/dbmsIdentification</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/injectionTypes</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTypes/errorBased</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTypes/unionBased</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTypes/blindBased</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/injectionTechniques</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTechniques/conditionalStatements</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTechniques/injectionPlacement</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/injectionTechniques/obfuscation</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/attackQueries</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/informationGathering</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/dataTargeting</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/privilegeEscalation</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/executingOSCommands</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/readingAndWritingFiles</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/lateralMovement</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/dataExfiltration</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/attackQueries/persistence</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/contributors</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/misc/references</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/misc/sandboxes</loc>
-  </url>
-  <url>
-    <loc>https://sqlwiki.netspi.com/tab/misc/tools</loc>
-  </url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/detection/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTechniques/obfuscation/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTechniques/conditionalStatements/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTechniques/injectionPlacement/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTechniques/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/misc/references/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/misc/tools/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/misc/sandboxes/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/misc/contributors/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/dbmsIdentification/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTypes/blindBased/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTypes/errorBased/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTypes/unionBased/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/injectionTypes/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/persistence/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/dataExfiltration/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/informationGathering/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/readingAndWritingFiles/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/privilegeEscalation/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/executingOSCommands/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/lateralMovement/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/parameterManipulation/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/dataTargeting/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/attackQueries/</loc>
+</url>
+<url>
+<loc>https://netspi.github.io/SQLInjectionWikiJekyll/</loc>
+</url>
 </urlset>
