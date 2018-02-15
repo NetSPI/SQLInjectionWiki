@@ -4,53 +4,53 @@
   url: https://netspi.com
   external: true
 - title: Injection Detection
-  url: /detection
+  url: /detection/
 - title: DBMS Identification
-  url: /dbmsIdentification
+  url: /dbmsIdentification/
 - title: Injection Types
-  url: /injectionTypes
+  url: /injectionTypes/
   children:
     - title: Error Based Injection
-      url: /injectionTypes/errorBased
+      url: /injectionTypes/errorBased/
     - title: Union Based Injection
-      url: /injectionTypes/unionBased
+      url: /injectionTypes/unionBased/
     - title: Blind Based Injection
-      url: /injectionTypes/blindBased
+      url: /injectionTypes/blindBased/
 - title: Injection Techniques
-  url: /injectionTechniques
+  url: /injectionTechniques/
   children:
     - title: Conditional Statements
-      url: /injectionTechniques/conditionalStatements
+      url: /injectionTechniques/conditionalStatements/
     - title: Injection Placement
-      url: /injectionTechniques/injectionPlacement
+      url: /injectionTechniques/injectionPlacement/
     - title: Injection Obfuscation
-      url: /injectionTechniques/obfuscation
+      url: /injectionTechniques/obfuscation/
 - title: Attack Queries
-  url: /attackQueries
+  url: /attackQueries/
   children:
     - title: Information Gathering
-      url: /attackQueries/informationGathering
+      url: /attackQueries/informationGathering/
     - title: Data Targeting
-      url: /attackQueries/dataTargeting
+      url: /attackQueries/dataTargeting/
     - title: Privilege Escalation
-      url: /attackQueries/privilegeEscalation
+      url: /attackQueries/privilegeEscalation/
     - title: Executing OS Commands
-      url: /attackQueries/executingOSCommands
+      url: /attackQueries/executingOSCommands/
     - title: Reading and Writing Files
-      url: /attackQueries/readingAndWritingFiles
+      url: /attackQueries/readingAndWritingFiles/
     - title: Lateral Movement
-      url: /attackQueries/lateralMovement
+      url: /attackQueries/lateralMovement/
     - title: Data Exfiltration
-      url: /attackQueries/dataExfiltration
+      url: /attackQueries/dataExfiltration/
     - title: Persistence
-      url: /attackQueries/persistence
+      url: /attackQueries/persistence/
 - title: Misc.
   children:
     - title: Contributors
-      url: /misc/contributors
+      url: /misc/contributors/
     - title: References
-      url: /misc/references
+      url: /misc/references/
     - title: Sandboxes
-      url: /misc/sandboxes
+      url: /misc/sandboxes/
     - title: Tools
-      url: /misc/tools
+      url: /misc/tools/
