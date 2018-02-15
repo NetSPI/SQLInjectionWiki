@@ -4,7 +4,7 @@
   url: https://netspi.com
   external: true
 - title: Injection Detection
-  url: /detection/
+  url: /detection
 - title: DBMS Identification
   url: /dbmsIdentification/
 - title: Injection Types
@@ -47,7 +47,7 @@
 - title: Misc.
   children:
     - title: Contributors
-      url: /misc/contributors/
+      url: /misc/contributors
     - title: References
       url: /misc/references/
     - title: Sandboxes
