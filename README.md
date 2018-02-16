@@ -18,3 +18,4 @@ See [CONTRIBUTING.md](https://github.com/NetSPI/WikiJekyllTheme/blob/master/CONT
 - Khai Tran (@k_tr4n)
 - Rafael Seferyan
 - Scott Sutherland (@_nullbind)
+
