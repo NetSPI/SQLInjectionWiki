@@ -1,4 +1,2 @@
 remote_theme: NetSPI/WikiJekyllTheme
-plugins:
-  - jekyll-sitemap
 pagebase: ""
