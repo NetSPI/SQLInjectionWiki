@@ -1,5 +1,6 @@
 ---
 ---
 <script>
-  window.location.href='{{site.pagebase}}'
+  var defaultPage = '{{site.pagebase}}';
+  window.location.href = defaultPage || '/';
 </script>
