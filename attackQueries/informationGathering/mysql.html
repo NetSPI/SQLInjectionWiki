@@ -17,28 +17,36 @@
       <td>SELECT @@version</td>
     </tr>
     <tr>
-      <td>Users</td>
-      <td>SELECT user FROM mysql.user<br>SELECT user();<br>SELECT system_user()<br>* SELECT Super_priv FROM mysql.user WHERE user= 'root' LIMIT 1,1</td>
+      <td>User</td>
+      <td>SELECT user()<br/>SELECT system_user()</td>
     </tr>
     <tr>
-      <td>Current Database</td>
-      <td>SELECT database()</td>
+      <td>Users</td>
+      <td>SELECT user FROM mysql.user<br/>* SELECT Super_priv FROM mysql.user WHERE user= 'root' LIMIT 1,1</td>
+    </tr>
+    <tr>
+      <td>Tables</td>
+      <td>SELECT table_schema, table_name FROM information_schema.tables</td>
+    </tr>
+    <tr>
+      <td>Columns</td>
+      <td>SELECT table_name, column_name FROM information_schema.columns</td>
     </tr>
     <tr>
       <td>Databases</td>
       <td>SELECT schema_name FROM information_schema.schemata<br></td>
     </tr>
     <tr>
-      <td>Tables</td>
-      <td>SELECT table_schema,table_name FROM information_schema.tables</td>
+      <td>Current Database Name</td>
+      <td>SELECT database()</td>
     </tr>
     <tr>
-      <td>Columns</td>
-      <td>SELECT table_schema, table_name, column_name FROM information_schema.columns</td>
+      <td>Query another Database</td>
+      <td>USE [database_name]; SELECT database();<br/>SELECT [column] FROM [database_name].[table_name]</td>
     </tr>
     <tr>
       <td>Number of Columns</td>
-      <td>SELECT * FROM USERS ORDER BY 1<br><br><em>Increase 1 until query returns false, previous number was the amount of columns</em></td>
+      <td>SELECT count(*) FROM information_schema.columns WHERE table_name = '[table_name]'</td>
     </tr>
     <tr>
       <td>DBA Accounts</td>

