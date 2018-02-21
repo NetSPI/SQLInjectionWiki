@@ -25,9 +25,21 @@
       <td>SELECT username FROM all_users ORDER BY username;<br>* SELECT name FROM sys.user$;</td>
     </tr>
     <tr>
+      <td>Tables</td>
+      <td>SELECT table_name FROM all_tables;<br>SELECT owner, table_name FROM all_tables;</td>
+    </tr>
+    <tr>
+      <td>Tables From Column Name</td>
+      <td>SELECT owner, table_name FROM all_tab_columns WHERE column_name LIKE '%PASS%';</td>
+    </tr>
+    <tr>
+      <td>Columns</td>
+      <td>SELECT column_name FROM all_tab_columns WHERE table_name = 'blah';<br>SELECT column_name FROM all_tab_columns WHERE table_name = 'blah' and owner = 'foo';</td>
+    </tr>
+    <tr>
       <td>Current Database</td>
-      <td>SELECT global_name FROM global_name;<br>SELECT name FROM v database;
-        <br>SELECT instance_name FROM v$instance;<br>SELECT SYS.DATABASE_NAME FROM DUAL;</td>
+      <td>SELECT global_name FROM global_name;<br>SELECT name FROM V$DATABASE;
+        <br>SELECT instance_name FROM V$INSTANCE;<br>SELECT SYS.DATABASE_NAME FROM DUAL;</td>
     </tr>
     <tr>
       <td>Databases</td>
@@ -36,18 +48,6 @@
     <tr>
       <td>DBA Accounts</td>
       <td>SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = 'YES';</td>
-    </tr>
-    <tr>
-      <td>Columns</td>
-      <td>SELECT column_name FROM all_tab_columns WHERE table_name = 'blah';<br>SELECT column_name FROM all_tab_columns WHERE table_name = 'blah' and owner = 'foo';</td>
-    </tr>
-    <tr>
-      <td>Tables</td>
-      <td>SELECT table_name FROM all_tables;<br>SELECT owner, table_name FROM all_tables;</td>
-    </tr>
-    <tr>
-      <td>Tables From Column Name</td>
-      <td>SELECT owner, table_name FROM all_tab_columns WHERE column_name LIKE '%PASS%';</td>
     </tr>
     <tr>
       <td>Privileges</td>
