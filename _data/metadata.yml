@@ -1,6 +1,5 @@
 googleTagManagerID: GTM-M7JZ64N
-keywords: "netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet"
-description: This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems
-ogImageLink: https://sqlwiki.netspi.com/assets/images/facebookCard.jpg
-twitterImageLink: https://sqlwiki.netspi.com/assets/images/twitterCard.jpg
+keywords: netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet
+ogImageLink: /assets/images/facebookCard.jpg
+twitterImageLink: /assets/images/twitterCard.jpg
 title: NetSPI SQL Injection Wiki
