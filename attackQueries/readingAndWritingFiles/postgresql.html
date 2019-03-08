@@ -13,14 +13,20 @@
   </thead>
   <tbody>
     <tr>
-      <td>Read Files from Operating System</td>
+      <td>Read Files from Operating System - COPY</td>
       <td>
 		CREATE TABLE mydata(t text);<br>
 		COPY mydata FROM '/etc/passwd';<br>
 		SELECT * FROM mydata;<br>
 		DROP TABLE mytest mytest;<br>
 	  </td>
-    </tr>   
+    </tr> 
+    <tr>
+      <td>Read Files from Operating System - pg_read_file</td>
+      <td>
+		SELECT pg_read_file('/usr/local/pgsql/data/pg_hba.conf', 0, 200);
+	  </td>
+    </tr> 		
     <tr>
       <td>Writing Files from Operating System</td>
       <td>
