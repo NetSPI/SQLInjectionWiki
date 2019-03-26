@@ -1,0 +1,24 @@
+<h3 id="blind-injection">Blind Injection</h3>
+
+<p class="pageDescription">{{site.data.injectionDescriptions.blindBased}}</p>
+
+<h4 class="subheading">Partial-Blind</h4>
+
+<p>Partial-blind injections can be determined by differing HTTP status codes, response times, content-lengths, and HTML contents in the HTTP response. These markers can indicate true or false statements. The queries below will attempt to exploit the injection by asserting a true or false response upon guessed
+  information. True or false queries can also be identified by returning 1(True) or 0(False) rows. An error can also be used to identify 0(False).</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND [RANDNUM]=(SELECT [RANDNUM] FROM PG_SLEEP([SLEEPTIME]))</td>
+    </tr>
+    <tr>
+      <td>AND [RANDNUM]=(SELECT COUNT(*) FROM GENERATE_SERIES(1,[SLEEPTIME]000000))</td>
+    </tr>
+  </tbody>
+</table>
