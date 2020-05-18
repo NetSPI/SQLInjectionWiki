@@ -64,11 +64,11 @@
     </tr>
     <tr>
       <td>User is root (Benchmark method)</td>
-      <td>SELECT IF(user() LIKE 'root@%', BENCHMARK(5000000, ENCODE('Slow Down','by 5 seconds')), null)</td>
+      <td>SELECT * from (user() LIKE 'root@%', BENCHMARK(5000000, ENCODE('Slow Down','by 5 seconds')), null)</td>
     </tr>
     <tr>
       <td>Version is 5.x.x</td>
-      <td>SELECT IF(SUBSTRING(version(),1,1)=5,SLEEP(5),null)</td>
+      <td>SELECT * from (SUBSTRING(version(),1,1)=5,SLEEP(5),null)</td>
     </tr>
   </tbody>
 </table>
