@@ -54,7 +54,7 @@
     </tr>
     <tr>
       <td>Password Hashes</td>
-      <td>SELECT host, user, password FROM mysql.user</td>
+      <td>SELECT host, user, password FROM mysql.user -- (until MySQL 5.6)<br/>SELECT host, user, authentication_string FROM mysql.user -- (since MySQL 5.7)</td>
     </tr>
     <tr>
       <td>Schema</td>
