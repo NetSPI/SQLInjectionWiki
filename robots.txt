@@ -2,4 +2,3 @@ User-agent: *
 Disallow:
 
 Sitemap: https://sqlwiki.netspi.com/sitemap.xml
-Meltest
