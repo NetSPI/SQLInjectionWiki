@@ -11,13 +11,4 @@ See [CONTRIBUTING.md](https://github.com/NetSPI/WikiJekyllTheme/blob/master/CONT
 
 ## Contributors
 
-- Aaron Yaeger
-- Antti Rantasaari
-- Ben Tindell
-- Colin Salisbury
-- Eric Gruber (@egru)
-- Ian Williams (@aph3rson)
-- Jake Reynolds (@jreynoldsdev)
-- Khai Tran (@k_tr4n)
-- Rafael Seferyan
-- Scott Sutherland (@_nullbind)
+- Ryan Beebe
