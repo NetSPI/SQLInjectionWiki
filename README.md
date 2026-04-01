@@ -12,6 +12,7 @@ See [CONTRIBUTING.md](https://github.com/NetSPI/WikiJekyllTheme/blob/master/CONT
 ## Contributors
 
 
+- Aaron Yaeger
 - Antti Rantasaari
 - Ben Tindell
 - Colin Salisbury
@@ -21,4 +22,7 @@ See [CONTRIBUTING.md](https://github.com/NetSPI/WikiJekyllTheme/blob/master/CONT
 - Khai Tran (@k_tr4n)
 - Rafael Seferyan
 - Scott Sutherland (@_nullbind)
-- Ryan Beebe MUST CONTRIBUTE
+- Sachin Wagh (@tigertigerboy07)
+- Anurag Kumar (@anukaal)
+- Matthias Altmann (@secf00tprint)
+- Ryan Beebe
